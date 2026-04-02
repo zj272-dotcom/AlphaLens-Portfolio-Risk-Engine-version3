@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bigdata"
+version = "0.1.0"
+description = "Multi-asset portfolio risk engine with a reusable market data pipeline."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Jiangzhenhao" },
+]
+dependencies = [
+  "numpy<2",
+  "pandas>=2.0",
+  "scipy>=1.10",
+  "yfinance>=0.2",
+]
+
+[project.optional-dependencies]
+test = [
+  "coverage[toml]>=7.0",
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+]
+notebook = [
+  "jupyterlab>=4.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["bigdata*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = [
+  "-ra",
+  "--strict-markers",
+]
