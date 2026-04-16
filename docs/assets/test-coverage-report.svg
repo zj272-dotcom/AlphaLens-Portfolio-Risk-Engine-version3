@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1040" viewBox="0 0 1280 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Pytest coverage report</title>
+  <desc id="desc">Terminal-style rendering of the latest pytest coverage run showing 117 passed tests and 99 percent total coverage.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .frame { fill: url(#bg); }
+      .window { fill: #ffffff; rx: 20; }
+      .header { fill: #e2e8f0; }
+      .dot-red { fill: #ef4444; }
+      .dot-yellow { fill: #f59e0b; }
+      .dot-green { fill: #22c55e; }
+      .text {
+        font-family: Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        font-size: 27px;
+        fill: #111827;
+        white-space: pre;
+      }
+      .muted { fill: #475569; }
+      .green { fill: #22c55e; }
+      .blue { fill: #2563eb; }
+    </style>
+  </defs>
+
+  <rect class="frame" width="1280" height="1040"/>
+  <g filter="url(#shadow)">
+    <rect class="window" x="48" y="42" width="1184" height="948" rx="22"/>
+    <rect class="header" x="48" y="42" width="1184" height="44" rx="22"/>
+    <rect fill="#e2e8f0" x="48" y="64" width="1184" height="22"/>
+    <circle class="dot-red" cx="84" cy="64" r="8"/>
+    <circle class="dot-yellow" cx="110" cy="64" r="8"/>
+    <circle class="dot-green" cx="136" cy="64" r="8"/>
+  </g>
+
+  <text class="text" x="72" y="126">(base) dhcp-v12043-4750:Risk-Engine-version3 mac$ pytest --cov=bigdata --cov-report=term-missing</text>
+  <text class="text" x="72" y="170">=========================== test session starts ===========================</text>
+  <text class="text muted" x="72" y="212">platform darwin -- Python 3.11.3, pytest-7.3.1, pluggy-1.6.0</text>
+  <text class="text muted" x="72" y="250">rootdir: /Users/mac/Desktop/orie 5270/Risk-Engine-version3</text>
+  <text class="text muted" x="72" y="288">configfile: pyproject.toml</text>
+  <text class="text muted" x="72" y="326">testpaths: tests</text>
+  <text class="text muted" x="72" y="364">plugins: anyio-3.5.0, cov-7.1.0</text>
+  <text class="text blue" x="72" y="416">collected 117 items</text>
+
+  <text class="text" x="72" y="486">tests/test_dashboard.py         <tspan class="green">.........</tspan>                                  <tspan class="green">[  8%]</tspan></text>
+  <text class="text" x="72" y="526">tests/test_data_pipeline.py     <tspan class="green">.......................</tspan>                   <tspan class="green">[ 28%]</tspan></text>
+  <text class="text" x="72" y="566">tests/test_macro_factor.py      <tspan class="green">..............</tspan>                            <tspan class="green">[ 41%]</tspan></text>
+  <text class="text" x="72" y="606">tests/test_portfolio_construction.py <tspan class="green">...........................</tspan>          <tspan class="green">[ 63%]</tspan></text>
+  <text class="text" x="72" y="646">tests/test_reporting.py         <tspan class="green">........</tspan>                                   <tspan class="green">[ 70%]</tspan></text>
+  <text class="text" x="72" y="686">tests/test_risk_engine.py       <tspan class="green">..................</tspan>                         <tspan class="green">[ 88%]</tspan></text>
+  <text class="text" x="72" y="726">tests/test_stress_testing.py    <tspan class="green">..............</tspan>                            <tspan class="green">[100%]</tspan></text>
+
+  <text class="text" x="72" y="790">============================= tests coverage =============================</text>
+  <text class="text muted" x="72" y="832">---------------- coverage: platform darwin, python 3.11.3-final-0 ----------------</text>
+  <text class="text" x="72" y="874">Name                         Stmts   Miss  Cover   Missing</text>
+  <text class="text" x="72" y="906">----------------------------------------------------------</text>
+  <text class="text" x="72" y="938">bigdata/__init__.py              9      0   100%</text>
+  <text class="text" x="72" y="970">bigdata/dashboard.py            63      1    98%   36</text>
+  <text class="text" x="72" y="1002">bigdata/data_pipeline.py        87      1    99%   123</text>
+
+  <text class="text" x="690" y="874">bigdata/macro_factor.py         96      0   100%</text>
+  <text class="text" x="690" y="906">bigdata/portfolio_construction.py 117   1    99%   122</text>
+  <text class="text" x="690" y="938">bigdata/reporting.py            79      1    99%   183</text>
+  <text class="text" x="690" y="970">bigdata/risk_engine.py          92      2    98%   32,136</text>
+  <text class="text" x="690" y="1002">bigdata/stress_testing.py      106      2    98%   53,169</text>
+
+  <text class="text blue" x="72" y="1032">TOTAL                          652      8    99%</text>
+  <text class="text green" x="690" y="1032">117 passed in 0.78s</text>
+</svg>

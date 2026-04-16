@@ -241,6 +241,15 @@ If `pytest-cov` is installed in your active environment, you can run:
 pytest --cov=bigdata --cov-report=term-missing
 ```
 
+Latest local coverage snapshot:
+
+![Pytest coverage report](./docs/assets/test-coverage-report.svg)
+
+From the run shown above:
+
+- `117 passed in 0.78s`
+- `TOTAL 652 statements, 8 missed, 99% coverage`
+
 Current test modules:
 
 - [`tests/test_data_pipeline.py`](./tests/test_data_pipeline.py)
@@ -300,4 +309,3 @@ The package is ready for repository upload as a documented Python project with:
 - import examples
 - notebook walkthrough
 - unit tests across all implemented modules
-
