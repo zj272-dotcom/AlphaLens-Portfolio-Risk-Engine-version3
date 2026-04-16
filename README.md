@@ -226,8 +226,8 @@ The notebook walks through:
 
 ## Testing
 
-The project includes a dedicated `tests/` directory and currently has broad
-module coverage across the implemented pipeline.
+The project includes a dedicated `tests/` directory covering the implemented
+pipeline modules.
 
 Run the test suite with:
 
@@ -239,35 +239,6 @@ Install test dependencies with:
 
 ```bash
 pip install -e ".[test]"
-```
-
-For a coverage summary, run:
-
-```bash
-pytest --cov=bigdata --cov-report=term-missing
-```
-
-Recent local coverage run:
-
-- `117 passed in 0.78s`
-- `TOTAL 652 statements, 8 missed, 99% coverage`
-
-```text
-============================= tests coverage =============================
-Name                               Stmts   Miss  Cover   Missing
------------------------------------------------------------------------
-bigdata/__init__.py                    9      0   100%
-bigdata/dashboard.py                  63      1    98%   36
-bigdata/data_pipeline.py              87      1    99%   123
-bigdata/macro_factor.py               96      0   100%
-bigdata/portfolio_construction.py    117      1    99%   122
-bigdata/reporting.py                  79      1    99%   183
-bigdata/risk_engine.py                92      2    98%   32, 136
-bigdata/stress_testing.py            106      2    98%   53, 169
-bigdata/universe.py                    3      0   100%
------------------------------------------------------------------------
-TOTAL                                652      8    99%
-117 passed in 0.78s
 ```
 
 Current test modules:
