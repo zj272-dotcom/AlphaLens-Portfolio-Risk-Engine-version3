@@ -1,8 +1,10 @@
 import pandas as pd
+import pytest
 
 from bigdata.reporting import (
     DEFAULT_LIMITS,
     RiskReport,
+    _last_row,
     build_daily_risk_summary,
     build_factor_summary,
     build_integrated_risk_report,
@@ -87,3 +89,55 @@ def test_build_integrated_risk_report_returns_all_sections(reporting_inputs):
     assert report.factor_summary_table.shape[0] >= 1
     assert report.top_positions_table.shape[0] == 2
     assert "status" in report.limit_check_table.columns
+
+
+def test_last_row_empty_raises():
+    with pytest.raises(ValueError, match="empty"):
+        _last_row(pd.DataFrame(), "test_df")
+
+
+def test_monitor_risk_limits_ignores_unknown_metric(reporting_inputs):
+    portfolio_result, risk_result, stress_result, macro_result = reporting_inputs
+
+    summary = build_daily_risk_summary(
+        portfolio_result=portfolio_result,
+        risk_result=risk_result,
+        stress_result=stress_result,
+        macro_result=macro_result,
+    )
+    factor_summary = build_factor_summary(macro_result)
+
+    limits = DEFAULT_LIMITS | {"fake_metric": 999.0}
+
+    limit_check_table, breach_log, alert_summary = monitor_risk_limits(
+        summary_table=summary,
+        factor_summary_table=factor_summary,
+        limits=limits,
+    )
+
+    assert "fake_metric" not in limit_check_table.index
+    assert isinstance(breach_log, pd.DataFrame)
+    assert isinstance(alert_summary["message"], str)
+
+
+def test_monitor_risk_limits_all_ok_message(reporting_inputs):
+    portfolio_result, risk_result, stress_result, macro_result = reporting_inputs
+
+    summary = build_daily_risk_summary(
+        portfolio_result=portfolio_result,
+        risk_result=risk_result,
+        stress_result=stress_result,
+        macro_result=macro_result,
+    )
+    factor_summary = build_factor_summary(macro_result)
+
+    huge_limits = {k: 999.0 for k in DEFAULT_LIMITS}
+
+    _, breach_log, alert_summary = monitor_risk_limits(
+        summary_table=summary,
+        factor_summary_table=factor_summary,
+        limits=huge_limits,
+    )
+
+    assert breach_log.empty
+    assert "All monitored metrics within limits." in alert_summary["message"]
