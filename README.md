@@ -241,6 +241,44 @@ Install test dependencies with:
 pip install -e ".[test]"
 ```
 
+Run the coverage report with:
+
+```bash
+pytest --cov=bigdata --cov-report=term-missing
+```
+
+Recent local run in the `qtrade311` environment:
+
+```text
+platform darwin -- Python 3.11.13, pytest-8.4.2
+collected 117 items
+
+tests/test_dashboard.py ..........
+tests/test_data_pipeline.py .......................
+tests/test_macro_factor.py ...............
+tests/test_portfolio_construction.py ..........................
+tests/test_reporting.py ........
+tests/test_risk_engine.py .....................
+tests/test_stress_testing.py ..............
+
+117 passed in 0.79s
+TOTAL 652 statements, 8 missed, 99% coverage
+```
+
+Coverage summary:
+
+```text
+bigdata/__init__.py                 100%
+bigdata/dashboard.py                98%   missing: 36
+bigdata/data_pipeline.py            99%   missing: 123
+bigdata/macro_factor.py             100%
+bigdata/portfolio_construction.py   99%   missing: 122
+bigdata/reporting.py                99%   missing: 183
+bigdata/risk_engine.py              98%   missing: 32, 136
+bigdata/stress_testing.py           98%   missing: 53, 169
+bigdata/universe.py                 100%
+```
+
 Current test modules:
 
 - [`tests/test_data_pipeline.py`](./tests/test_data_pipeline.py)
