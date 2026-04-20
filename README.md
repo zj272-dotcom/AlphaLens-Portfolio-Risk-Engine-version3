@@ -277,6 +277,7 @@ bigdata/reporting.py                99%   missing: 183
 bigdata/risk_engine.py              98%   missing: 32, 136
 bigdata/stress_testing.py           98%   missing: 53, 169
 bigdata/universe.py                 100%
+TOTAL                               99%   652 statements, 8 missed
 ```
 
 Current test modules:
