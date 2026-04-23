@@ -11,7 +11,7 @@ an end-to-end workflow for:
 - decomposing risk into macro-factor and residual components
 - assembling daily risk reports and a lightweight dashboard
 
-The project is organized as a reusable Python package with unit tests, notebook
+The project is organized as a reusable Python package with 99% unit test coverage, notebook
 examples, and a structure that can be extended as new analytics are added.
 
 ## Purpose
